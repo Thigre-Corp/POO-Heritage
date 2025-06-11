@@ -44,7 +44,7 @@ class Voiture{
     }
 }
 
-final class Ev extends Voiture{
+final class VoitureElectrique extends Voiture{
     //attributs
     private  int $_autonomie = 0;
 
@@ -55,7 +55,15 @@ final class Ev extends Voiture{
     }
     //--toString
     public function __toString(){
-        return $this->_marque." ".$this->_modele." ".$this->_autonomie." km<br>";
+        return parent::__toString().$this->_autonomie." km<br>";
+    }
+    //--setter
+    public function setAutonomie( int $autonomie = 0 ) : int {
+        return $this->_autonomie = $autonomie;
+    }
+    //---getter
+    public function getAutonomie() : int {
+        return $this->_autonomie;
     }
     //--méthodes
     public function getInfo()  : string {
